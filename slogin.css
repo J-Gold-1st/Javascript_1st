@@ -1,0 +1,145 @@
+body {
+    background: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    color: orange;
+
+    padding: 10px; /* prevents touching edges on small screens */
+}
+
+/* Form & Section */
+form, section {
+    background: white;
+
+    padding: 2rem;
+    border-radius: 10px;
+
+    box-shadow: 0 7.5px 15px rgba(0, 0, 0, 0.1);
+
+    width: 100%;
+    max-width: 400px;
+
+    box-sizing: border-box;
+}
+
+/* Labels */
+label {
+    display: block;
+
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+
+    height: 40px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    padding: 0 10px;
+
+    box-sizing: border-box;
+
+    margin-bottom: 1rem;
+
+    font-size: 16px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    height: 40px;
+    background: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ff8c00;
+}
+
+/* ---------- Tablet Responsive ---------- */
+@media (max-width: 900px) {
+
+    form, section {
+        max-width: 500px;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+}
+
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 600px) {
+
+    body {
+        align-items: flex-start; /* better on small phones */
+        padding-top: 40px;
+    }
+
+    form, section {
+        padding: 1.2rem;
+
+        margin: 0.5rem;
+
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+
+        text-align: center;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    {
+
+        height: 45px;
+
+        font-size: 18px;
+    }
+    button{
+        height:40px;
+        font-size:15px
+    }
+
+}
+
+/* ---------- Very Small Phones ---------- */
+@media (max-width: 350px) {
+
+    form, section {
+
+        padding: 1rem;
+    }
+
+    h1 {
+
+        font-size: 1.3rem;
+    }
+
+    label {
+
+        font-size: 14px;
+    }
+
+}

@@ -1,0 +1,45 @@
+<html>
+    <head>
+       <link rel="stylesheet" href="slogin.css">
+        <title>Essa Today</title>
+    </head> 
+    <body>
+
+         <section>
+         <form onsubmit="checkLoginInfo()" method="post">
+           <h2>Welcome Back to Essa Today
+           </h2>
+            <label for="username">Username:</label><br>
+
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Log in</button>
+            <p>If you don't have an account </p>
+
+        </form>
+                    <a href="signup.html"><button>Sign up</button></a>
+    </section>
+                    <script>
+            function checkLoginInfo() {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const storedUserData = localStorage.getItem('newUser');
+                
+                if (!storedUserData){
+                    alert("Account does not exist! Please sign up first.");
+                    return;
+                }
+                const user = JSON.parse(storedUserData);
+                if (user.password === password && user.username === username){
+                    alert("Login successful! Welcome back, " + username + "!");
+                   window.location.href = "homepage.html";
+                } else {
+                    alert("Incorrect password or Username!, Please try again.");
+                }
+                
+ event.preventDefault();
+            }
+           
+        </script>
+</html>
