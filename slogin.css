@@ -1,145 +1,125 @@
+/* ==================== MAIN STYLES ==================== */
 body {
-    background: aliceblue;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                url('images/image.png') center/cover no-repeat fixed;
+    
     display: flex;
     justify-content: center;
     align-items: center;
-
-    min-height: 100vh;
-    margin: 0;
-
-    font-family: Arial, sans-serif;
-    color: orange;
-
-    padding: 10px; /* prevents touching edges on small screens */
+    color: white;
 }
 
-/* Form & Section */
-form, section {
-    background: white;
-
-    padding: 2rem;
-    border-radius: 10px;
-
-    box-shadow: 0 7.5px 15px rgba(0, 0, 0, 0.1);
-
+/* Form Container */
+section{
+    background: black;
+    color: #333;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 400px;
-
+    max-width: 420px;
     box-sizing: border-box;
+    text-align: center;
+    opacity:80%
+}
+
+/* Welcome Text */
+.welcome {
+    color: #0077be;           /* Beautiful blue like in the image */
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    animation: mymove 5s linear infinite;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+@keyframes mymove {
+    0%   { width: 0%; opacity: 0.6; }
+    50%  { width: 100%; opacity: 1; }
+    100% { width: 0%; opacity: 0.6; }
 }
 
 /* Labels */
 label {
     display: block;
-
+    text-align: left;
     margin-bottom: 0.5rem;
     font-weight: bold;
+    color: #333;
 }
 
 /* Inputs */
 input[type="text"],
 input[type="password"] {
     width: 100%;
-
-    height: 40px;
-
-    border: 1px solid #ccc;
-    border-radius: 5px;
-
-    padding: 0 10px;
-
-    box-sizing: border-box;
-
-    margin-bottom: 1rem;
-
+    height: 48px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 0 12px;
+    margin-bottom: 1.2rem;
     font-size: 16px;
+    box-sizing: border-box;
+    transition: border 0.3s;
 }
 
-/* Button */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #0077be;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 119, 190, 0.2);
+}
+
+/* Login Button */
 button {
     width: 100%;
-    height: 40px;
-    background: orange;
+    height: 50px;
+    background: #0077be;        /* Blue matching the school colors */
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
+    margin-top: 10px;
+    transition: all 0.3s;
 }
 
 button:hover {
-    background: #ff8c00;
+    background: #005a8f;
+    transform: translateY(-2px);
 }
 
-/* ---------- Tablet Responsive ---------- */
-@media (max-width: 900px) {
-
-    form, section {
-        max-width: 500px;
-        padding: 1.5rem;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-        text-align: center;
-    }
-
+/* Sign up link */
+a {
+    color: #0077be;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* ---------- Mobile Responsive ---------- */
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
 @media (max-width: 600px) {
-
-    body {
-        align-items: flex-start; /* better on small phones */
-        padding-top: 40px;
+    section, form {
+        padding: 2rem 1.5rem;
+        margin: 10px;
+        max-width: 95%;
     }
-
-    form, section {
-        padding: 1.2rem;
-
-        margin: 0.5rem;
-
-        max-width: 100%;
+    
+    .welcome {
+        font-size: 1.6rem;
     }
-
-    h1 {
-        font-size: 1.5rem;
-
-        text-align: center;
-    }
-
-    input[type="text"],
-    input[type="password"],
-    {
-
-        height: 45px;
-
-        font-size: 18px;
-    }
-    button{
-        height:40px;
-        font-size:15px
-    }
-
 }
 
-/* ---------- Very Small Phones ---------- */
-@media (max-width: 350px) {
-
-    form, section {
-
-        padding: 1rem;
+@media (max-width: 400px) {
+    .welcome {
+        font-size: 1.45rem;
     }
-
-    h1 {
-
-        font-size: 1.3rem;
-    }
-
-    label {
-
-        font-size: 14px;
-    }
-
 }

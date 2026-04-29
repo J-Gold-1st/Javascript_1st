@@ -1,0 +1,255 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESSA Nyarugunga | School of Excellence</title>
+    <link rel="stylesheet" href="features.css">
+    <style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff9f0;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    /* Header Section */
+    .admission-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .admission-btn {
+      display: inline-block;
+      padding: 10px 28px;
+      border: 2px solid #333;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+      background: white;
+      margin-bottom: 20px;
+    }
+
+    .main-title {
+      font-size: 42px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 18px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      max-width: 750px;
+      margin: 0 auto;
+      color: #555;
+    }
+
+    /* Admission Methods */
+    .methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+    }
+
+    .method-card {
+      background: white;
+      border-radius: 14px;
+      padding: 40px 35px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #f0e6d9;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+
+    .method-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .method-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .method-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+    }
+
+    .method-card p {
+      font-size: 16.5px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #e07a5f;
+    }
+
+    .contact-info {
+      background: #fff4e6;
+      padding: 18px 22px;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-size: 15.5px;
+    }
+
+    /* Button */
+    .apply-btn {
+      display: inline-block;
+      background: #e07a5f;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: all 0.3s;
+    }
+
+    .apply-btn:hover {
+      background: #d96a4f;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 34px;
+      }
+      .methods {
+        grid-template-columns: 1fr;
+      }
+    }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo-area">
+        <img src="images/Essalogo.png" alt="ESSA Nyarugunga Logo" class="logo">
+        <h1 class="animate">ESSA Nyarugunga</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="About.html">About Us</a>
+        <a href="Academics.html">Academics</a>
+        <a href="Admissions.html">Admissions</a>
+        <a href="login.html"><button class="transparent">Login</button></a>
+    </nav>
+
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+</header>
+<div class="container">
+    <!-- Header -->
+    <div class="admission-header">
+      <div class="admission-btn">Admissions</div>
+      <h1 class="main-title">Join Essa Nyarugunga</h1>
+      <p class="subtitle">
+        We welcome enthusiastic learners ready to grow academically, socially, and personally. 
+        Discover the simple ways to become part of our vibrant school community in Nyarugunga, Kicukiro.
+      </p>
+    </div>
+
+    <!-- Admission Methods -->
+    <div class="methods">
+      
+      <!-- Method 1: Visit the School -->
+      <div class="method-card" id="card1">
+        <span class="method-icon">📍</span>
+        <h2 class="method-title">1. Visit Our Campus</h2>
+        <p>
+          Come and experience our warm learning environment firsthand. Our friendly team will give you a personal tour, 
+          answer all your questions, and guide you through the admission process.
+        </p>
+        <div class="contact-info">
+          <strong>Location:</strong><br>
+          Essa Nyarugunga<br>
+          Kanombe, Kicukiro District<br>
+          Kigali, Rwanda
+        </div>
+        <p><strong>Visiting Hours:</strong> Monday – Friday, 8:00 AM – 4:00 PM</p>
+      </div>
+
+      <!-- Method 2: Online Application -->
+      <div class="method-card" id="card2">
+        <span class="method-icon">💻</span>
+        <h2 class="method-title">2. Apply Online</h2>
+        <p>
+          The fastest and most convenient way to apply. Fill out our simple online admission form from anywhere. 
+          Our admissions team will contact you within 2 working days.
+        </p>
+        <a href="application.html" class="apply-btn">Start Online Application →</a>
+        <p style="margin-top: 20px; font-size: 15px;">
+          You will need to upload: Recent passport photo, Birth certificate, Previous school report (if any).
+        </p>
+      </div>
+
+      <!-- Method 3: Call the School Leader -->
+      <div class="method-card" id="card3">
+        <span class="method-icon">📞</span>
+        <h2 class="method-title">3. Call Our School Leader</h2>
+        <p>
+          Speak directly with our leadership team. Get immediate guidance on available programs, fees, and admission requirements.
+        </p>
+        <div class="contact-info">
+          <strong>School Leader:</strong> Mr. AINE BYONA James<br><br>
+          <strong>Phone:</strong> <span class="highlight">+250 788 891 751</span><br>
+          <strong>WhatsApp:</strong> <span class="highlight">+250 788 891 751</span><br><br>
+          <strong>Email:</strong> essanyarugunga@yahoo.fr
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 80px; font-size: 15px; color: #666;">
+      We look forward to welcoming your child to the Essa Nyarugunga family!<br>
+      <strong>Early applications are encouraged as spaces are limited.</strong>
+    </div>
+  </div>
+<script src="Homepage.js"></script>
+  <script>
+    // Scroll Fade-in Animation
+    function handleScroll() {
+      const cards = document.querySelectorAll('.method-card');
+      
+      cards.forEach((card, index) => {
+        const cardTop = card.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (cardTop < windowHeight * 0.85) {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 150); // Staggered animation
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', () => {
+      setTimeout(handleScroll, 400);
+    });
+  </script>
+</body>
+</body>

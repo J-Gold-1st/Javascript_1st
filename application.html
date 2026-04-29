@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Application - Essa Nyarugunga</title>
+  <link rel="stylesheet" href="style.css">
+   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff9f0;
+      padding: 60px 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .form-header {
+      background: #e07a5f;
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .form-header .badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .form-header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .form-body {
+      padding: 40px 40px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border 0.3s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #e07a5f;
+    }
+
+    .required::after {
+      content: " *";
+      color: #e07a5f;
+    }
+
+    .btn {
+      background: #e07a5f;
+      color: white;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: #d96a4f;
+      transform: translateY(-2px);
+    }
+
+    .success {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-header">
+      <div class="badge">Online Application</div>
+      <h1>Apply to Essa Nyarugunga</h1>
+      <p>Fill the form below to start your admission process</p>
+    </div>
+
+    <div class="form-body" style="padding: 40px 40px;">
+      <form id="applicationForm">
+        
+        <div class="form-group">
+          <label class="required">Student Full Name</label>
+          <input type="text" id="studentName" required>
+        </div>
+
+        <div class="form-group">
+          <label class="required">Class / Level / Trade Applying For</label>
+          <select id="studentClass" required>
+            <option value="">Select Class / Trade</option>
+            
+            <!-- Ordinary Level -->
+            <optgroup label="Ordinary Level (S1 - S3)">
+              <option value="S1">S1 - Ordinary Level</option>
+              <option value="S2">S2 - Ordinary Level</option>
+              <option value="S3">S3 - Ordinary Level</option>
+            </optgroup>
+
+            <!-- Advanced Level -->
+            <optgroup label="Advanced Level (S4 - S6)">
+              <option value="S4">S4 - Advanced Level</option>
+              <option value="S5">S5 - Advanced Level</option>
+              <option value="S6">S6 - Advanced Level</option>
+            </optgroup>
+
+            <!-- TVET / Trades (Level 3 to 5) -->
+            <optgroup label="TVET Trades (Level 3 - 5)">
+              <option value="Computer Systems and Architecture L3">Computer Systems and Architecture - Level 3</option>
+              <option value="Computer Systems and Architecture L4">Computer Systems and Architecture - Level 4</option>
+              <option value="Computer Systems and Architecture L5">Computer Systems and Architecture - Level 5</option>
+              
+              <option value="Software Development L3">Software Development - Level 3</option>
+              <option value="Software Development L4">Software Development - Level 4</option>
+              <option value="Software Development L5">Software Development - Level 5</option>
+              
+              <option value="Tourism L3">Tourism - Level 3</option>
+              <option value="Tourism L4">Tourism - Level 4</option>
+              <option value="Tourism L5">Tourism - Level 5</option>
+              
+              <option value="Food and Beverage L3">Food and Beverage - Level 3</option>
+              <option value="Food and Beverage L4">Food and Beverage - Level 4</option>
+              <option value="Food and Beverage L5">Food and Beverage - Level 5</option>
+              
+              <option value="Building and Construction L3">Building and Construction - Level 3</option>
+              <option value="Building and Construction L4">Building and Construction - Level 4</option>
+              <option value="Building and Construction L5">Building and Construction - Level 5</option>
+              
+              <option value="Accounting L3">Accounting - Level 3</option>
+              <option value="Accounting L4">Accounting - Level 4</option>
+              <option value="Accounting L5">Accounting - Level 5</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="required">Previous Academic Performance</label>
+          <input type="text" id="studentMarks" placeholder="e.g. Average 78%, Top 10, Excellent, Pass with Distinction" required>
+        </div>
+
+        <div class="form-group">
+          <label class="required">Student Email Address</label>
+          <input type="email" id="studentEmail" required>
+        </div>
+
+        <div class="form-group">
+          <label>Payment Receipt Number (Optional)</label>
+          <input type="text" id="receiptNumber" placeholder="Enter receipt number if already paid">
+        </div>
+
+        <div class="form-group">
+          <label class="required">Parent / Guardian Phone Number</label>
+          <input type="tel" id="parentNumber" placeholder="+250 788 XXX XXX" required>
+        </div>
+        <button type="submit" class="btn-primary">Submit Application</button>
+      </form>
+<button class="btn-primary" onclick="window.location.href='index.html'"> Back </button>
+      <div id="successMessage" class="success" style="display: none; margin-top: 20px;">
+        <h3>✅ Application Submitted Successfully!</h3>
+        <p>Your application has been received. We will contact you within 2 working days.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+
+  <script>
+    // Form Submission with Local Storage
+    const form = document.getElementById('applicationForm');
+    const successMsg = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const application = {
+        id: Date.now(),
+        studentName: document.getElementById('studentName').value.trim(),
+        studentClass: document.getElementById('studentClass').value,
+        studentMarks: document.getElementById('studentMarks').value.trim(),
+        studentEmail: document.getElementById('studentEmail').value.trim(),
+        receiptNumber: document.getElementById('receiptNumber').value.trim() || 'Not Paid',
+        parentNumber: document.getElementById('parentNumber').value.trim(),
+        dateApplied: new Date().toLocaleDateString('en-GB'),
+        status: "Pending"
+      };
+
+      // Save to Local Storage
+      let applications = JSON.parse(localStorage.getItem('essaApplications')) || [];
+      applications.push(application);
+      localStorage.setItem('essaApplications', JSON.stringify(applications));
+
+      // Show success
+      successMsg.style.display = 'block';
+      form.reset();
+
+      setTimeout(() => {
+        successMsg.style.display = 'none';
+      }, 6000);
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    setTheme(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    });
+  </script>
+</body>
+</html>

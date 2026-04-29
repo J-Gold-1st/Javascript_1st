@@ -1,0 +1,243 @@
+
+
+:root {
+  /* Light Mode Colors */
+  --bg-primary: #fff9f0;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #444444;
+  --accent: #e07a5f;
+  --accent-hover: #d96a4f;
+  --border: #e6d9c2;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --header-bg: #e07a5f;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode Colors */
+  --bg-primary: #1a1a1a;
+  --bg-card: #2a2a2a;
+  --text-primary: #f0f0f0;
+  --text-secondary: #cccccc;
+  --accent: #f4a261;
+  --accent-hover: #e08a4f;
+  --border: #444444;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --header-bg: #f4a261;
+}
+
+/* ====================== GLOBAL RESET ====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ====================== CONTAINERS ====================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ====================== TYPOGRAPHY ====================== */
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.main-title {
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* ====================== BUTTONS ====================== */
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+}
+
+.overview-btn, .mission-btn, .admission-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 2px solid var(--text-primary);
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: all 0.3s;
+}
+
+.overview-btn:hover, .mission-btn:hover, .admission-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* ====================== CARDS ====================== */
+.card, .method-card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  padding: 40px 35px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover, .method-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ====================== FORM STYLING ====================== */
+.form-group {
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+input, select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  transition: border 0.3s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.required::after {
+  content: " *";
+  color: var(--accent);
+}
+
+/* ====================== TABLE ====================== */
+table {
+  width: 100%;
+  background: var(--bg-card);
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+th {
+  background: var(--accent);
+  color: white;
+  padding: 18px 20px;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+tr:hover {
+  background: rgba(224, 122, 95, 0.08);
+}
+
+/* ====================== HEADER BADGE ====================== */
+.badge {
+  display: inline-block;
+  padding: 10px 26px;
+  border: 2px solid var(--text-primary);
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* ====================== ANIMATIONS ====================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====================== DARK MODE TOGGLE ====================== */
+.theme-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 34px;
+  }
+  
+  .card, .method-card {
+    padding: 30px 25px;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+}

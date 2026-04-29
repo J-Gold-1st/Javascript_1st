@@ -1,0 +1,83 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESSA Nyarugunga | School of Excellence</title>
+    <link rel="stylesheet" href="features.css">
+    <style>
+        .animate{
+            animation: mymove fadeIn 2s ease-in-out;
+        }
+@keyframes mymove{
+0% { font-size: 1; opacity: 0; }
+50% { opacity: 1; font-size: 1.5em; }
+100%{
+opacity: 0; font-size:1;    }
+}
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo-area">
+        <img src="images/Essalogo.png" alt="ESSA Nyarugunga Logo" class="logo">
+        <h1 class="animate">ESSA Nyarugunga</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#about">About Us</a>
+        <a href="Academics.html">Academics</a>
+        <a href="Admissions.html">Admissions</a>
+        <a href="login.html"><button class="transparent">Login</button></a>
+    </nav>
+
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+</header>
+
+<section class="hero">
+    <img src="images/image.png" alt="Students at ESSA Nyarugunga" class="hero-img">
+    <div class="hero-text">
+        <h2 class="animate">Welcome to ESSA Nyarugunga</h2>
+        <p>School of Excellence • Technical &amp; Vocational Education</p>
+        <button onclick="window.location.href='application.html'">Apply Now</button>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2>About Our School</h2>
+    <p>ESSA Nyarugunga is a leading technical secondary school in
+         Kigali, Rwanda, committed to providing high-quality education and
+          practical skills in various technical fields to prepare students for the 
+          job market and further studies. <button class="transparent" onclick="window.location.href='About.html'">Read more</button></p>
+</section>
+
+<section class="news">
+    <h2>Latest News &amp; Announcements</h2>
+    <div class="news-container">
+        <div class="news-card">
+            <h3>Admissions Open 2026 - 2027</h3>
+            <p>New student admissions for the academic year 2026 are now open. Apply before the deadline.</p>
+        </div>
+        <div class="news-card">
+            <h3>National Examinations</h3>
+            <p>End-of-year practical examinations will begin next month. All students should prepare accordingly.</p>
+        </div>
+        <div class="news-card">
+            <h3>School Events</h3>
+            <p>Annual Cultural Day and Sports Competition will be held in May 2026.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 ESSA Nyarugunga | Nyarugunga, Kigali - Rwanda | All Rights Reserved</p>
+</footer>
+
+<script src="homepage.js"></script>
+</body>
+</html>

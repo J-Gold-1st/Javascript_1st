@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESSA Nyarugunga - Home</title>
+    
+    <!-- Link to unified stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Page-specific custom styles */
+        body {
+            background-color: var(--bg-primary);
+            padding-top: 0;
+        }
+
+        header {
+            background: var(--bg-card);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .transparent {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .transparent:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Make containers consistent with theme */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 130px;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #f8c1a8,
+                #f8c1a8 15px,
+                #f4a37f 15px,
+                #f4a37f 30px
+            );
+            clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+        }
+
+        [data-theme="dark"] .pattern {
+            background: repeating-linear-gradient(
+                45deg,
+                #c97a5f,
+                #c97a5f 15px,
+                #b86a4f 15px,
+                #b86a4f 30px
+            );
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container" style="margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 30px;">
+            <div class="logo-area">
+                <img src="images/Essalogo.png" alt="ESSA Nyarugunga Logo" class="logo">
+                <h1 style="font-size: 24px; margin: 0;">ESSA Nyarugunga</h1>
+            </div>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#about">About Us</a>
+                <a href="Academics.html">Academics</a>
+                <a href="Admissions.html">Admissions</a>
+                <a href="login.html"><button class="transparent">Login</button></a>
+            </nav>
+
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        </div>
+    </header>
+
+    <!-- Welcome / Overview Section -->
+    <div class="container">
+        <div class="header" style="position: relative; padding: 50px 50px 40px;">
+            <div class="pattern"></div>
+            
+            <div class="content" style="display: flex; gap: 60px; padding: 20px 0;">
+                <div class="left-section">
+                    <div class="overview-btn">Overview</div>
+                    <h1 class="title">Welcome to ESSA</h1>
+                    <h1 class="subtitle">Nyarugunga</h1>
+                </div>
+                
+                <div class="right-section">
+                    <p>
+                        A leading school dedicated to providing a nurturing and stimulating environment 
+                        for young learners and future professionals. We are committed to academic excellence, 
+                        character development, and preparing students for a successful future.
+                    </p>
+                    <p>
+                        Our holistic approach fosters intellectual, social, emotional, and physical 
+                        development, ensuring that every student reaches their full potential.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mission & Vision Section -->
+    <div class="container">
+        <div class="header" style="text-align: center; margin-bottom: 60px; padding: 40px 20px 0;">
+            <div class="mission-btn">Mission & Vision</div>
+            <h1 class="main-title">Our Mission and Vision</h1>
+            <p class="subtitle">
+                We are here to provide a nurturing and inclusive environment where young minds can thrive, 
+                fostering a love for learning and personal growth.
+            </p>
+        </div>
+
+        <div class="cards" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 40px 50px;">
+            <!-- Mission Card -->
+            <div class="card fade-in" id="mission-card">
+                <div class="card-header">
+                    <h2 class="card-title">Mission</h2>
+                    <span class="icon mountain-icon">🏔️</span>
+                </div>
+                <p>
+                    At ESSA Nyarugunga, our mission is to inspire a passion for learning and empower 
+                    young minds to become confident, compassionate, and creative individuals. We strive 
+                    to create a safe and inclusive space where students thrive academically, socially, 
+                    and emotionally.
+                </p>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="card fade-in" id="vision-card">
+                <div class="card-header">
+                    <h2 class="card-title">Vision</h2>
+                    <span class="icon binocular-icon">🔭</span>
+                </div>
+                <p>
+                    Our vision is to be a beacon of educational excellence, where students are encouraged 
+                    to explore, discover, and express their unique talents. We aim to foster a generation 
+                    of lifelong learners equipped with critical thinking, empathy, and a deep appreciation 
+                    for diversity.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Initialize theme
+        setTheme(currentTheme);
+
+        // Toggle on click
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        // Scroll Animation for Cards
+        function handleScroll() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight * 0.85) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', () => {
+            setTimeout(handleScroll, 300);
+        });
+    </script>
+</body>
+</html>

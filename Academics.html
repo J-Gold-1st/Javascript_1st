@@ -1,61 +1,249 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - ESSA Nyarugunga</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('images/image.png');
+            background-size: cover;
+            background-position: center;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-primary);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .program-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 35px 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+        }
+
+        .program-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .program-level {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .program-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--text-primary);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .stat-item h3 {
+            font-size: 42px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="features.css">
+</head>
+<body>
+
+    <!-- HEADER -->
     <header>
-        <style>
-            body{
-                background:aliceblue;
-                
-            }
-            nav{
-                display:flex;
-                justify-content:space-between;
-                background: black;
-                color:white;
-                padding:1em;
-            }
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px;">
+            <div class="logo-area">
+                <img src="images/Essalogo.png" alt="ESSA Logo" class="logo" style="height: 50px;">
+                <h1 style="font-size: 24px; margin: 0;">ESSA Nyarugunga</h1>
+            </div>
 
-            nav a{
-                color:white;
-                text-decoration:none;
-                font-size:1.2em;
-            }
-            nav a:hover{
-                text-decoration:none;
-                color:blue;
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="About`.html">About Us</a>
+                <a href="Academics.html">Academics</a>
+                <a href="Admissions.html">Admissions</a>
+                <a href="login.html"><button class="transparent">Login</button></a>
+            </nav>
 
-            }
-            nav a:active{
-               
-            }
-            button{
-                background:blue;
-                width:20vh;
-                height:4vh;
-                border-radius:5%;
-                color:white;
-                font-size:1.2em;
-                box-shadow:green;
-                border:none;
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        </div>
+    </heade>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Academic Excellence</h1>
+            <p style="font-size: 20px; max-width: 600px;">
+                Shaping tomorrow's leaders through quality education, practical skills, and innovation
+            </p>
+        </div>
+    </div>
 
+    <div class="container">
 
-            }
-        </style>
+        <!-- Introduction -->
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
+            <h2 class="section-title">Our Academic Programs</h2>
+            <p style="font-size: 18px; color: var(--text-secondary);">
+                At ESSA Nyarugunga, we offer a comprehensive and well-balanced curriculum designed to develop 
+                both academic knowledge and practical skills needed for the modern world.
+            </p>
+        </div>
 
+        <!-- Programs Grid -->
+        <div class="programs-grid">
 
-    </header>
-    <body>
-        <nav>
-              <a href="">CSS media Query</a>
-            <a href="">Home</a>
-            <a href="">About</a>
-            <a href="">services</a>
-            <a href="">Contact</a>
-        </nav>
-        <h1>Welcome to Dairy Flash</h1>
-        <button>Latest News</button>
-        
-        <button>Last day news</button>
-        
-        <button>All news</button>
-    
-     </body>   
+            <!-- Ordinary Level -->
+            <div class="program-card">
+                <div class="program-level">S1 – S3</div>
+                <div class="program-title">Ordinary Level</div>
+                <p>Strong foundation in core subjects including Mathematics, Sciences, Languages, Humanities, and ICT. 
+                   We emphasize critical thinking and discipline from the early years.</p>
+            </div>
+
+            <!-- Advanced Level -->
+            <div class="program-card">
+                <div class="program-level">S4 – S6</div>
+                <div class="program-title">Advanced Level</div>
+                <p>Specialized streams with in-depth study in chosen combinations. Students are prepared for national examinations and higher education.</p>
+            </div>
+
+            <!-- TVET Trades -->
+            <div class="program-card">
+                <div class="program-level">Level 3 – 5 (TVET)</div>
+                <div class="program-title">Technical & Vocational Education</div>
+                <p>Hands-on training in modern trades including:</p>
+                <ul style="margin-top: 15px; padding-left: 20px; line-height: 1.8;">
+                    <li>Computer Systems & Architecture</li>
+                    <li>Software Development</li>
+                    <li>Tourism</li>
+                    <li>Food & Beverage Services</li>
+                    <li>Building & Construction</li>
+                    <li>Accounting</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <h2 class="section-title">Why Choose ESSA Academically?</h2>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📚</div>
+                <h3>Competence-Based Curriculum</h3>
+                <p>Modern teaching methods focused on real-life skills and problem-solving rather than rote learning.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧪</div>
+                <h3>Well-Equipped Labs & Workshops</h3>
+                <p>State-of-the-art computer labs, science laboratories, and practical workshops for TVET programs.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h3>High Academic Performance</h3>
+                <p>Consistently excellent results in national examinations with many students joining top universities.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">👨‍🏫</div>
+                <h3>Qualified & Passionate Teachers</h3>
+                <p>Experienced educators committed to nurturing every student's potential.</p>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat-item">
+                <h3>95%</h3>
+                <p>Pass Rate in National Exams</p>
+            </div>
+            <div class="stat-item">
+                <h3>80+</h3>
+                <p>Qualified Teachers</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Modern Laboratories & Workshops</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>TVET Students with Practical Training</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 80px 0 40px;">
+            <a href="Admissions.html" class="btn-primary" style="font-size: 18px; padding: 18px 40px;">
+                Apply Now for 2026 Intake
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        setTheme(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+    </script>
+</body>
 </html>
