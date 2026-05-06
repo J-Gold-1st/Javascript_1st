@@ -55,7 +55,7 @@
     document.getElementById('loginForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const username = document.getElementById('username').value.trim();
+        const username = document.getElementById('  username').value.trim();
         const password = document.getElementById('password').value.trim();
 
         // Get the array of users from localStorage
@@ -65,8 +65,11 @@
             alert("No accounts found! Please sign up first.");
             return;
         }
-
+        if (username === "James250Essa" && password === "essa200pro"){
+            window.location.href = "dashboard.html"
+        }
         // Find the user
+        else{
         const foundUser = users.find(user => user.username === username && user.password === password);
 
         if (foundUser) {
@@ -74,7 +77,7 @@
             window.location.href = "index.html";
         } else {
             alert("Incorrect username or password! Please try again.");
-        }
+        }}
     });
 </script>
 </body>

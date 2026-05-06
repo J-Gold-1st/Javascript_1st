@@ -101,11 +101,11 @@
             </div>
 
             <button type="submit" class="btn-primary" style="width: 100%; padding: 14px;">
-                Login to Dashboard
+                Login As Admin
             </button>
         </form>
         <p style="margin-top: 20px; color: var(--text-secondary);">
-            Default: <strong>James250Essa</strong> / <strong>essa200pro</strong>
+            Default: <strong>If you are not an Adminstraor Don't Try</strong>
         </p>
     </div>
 
@@ -196,7 +196,7 @@
             </div>
         </div>
     </div>
-
+    
     <script>
         // Admin Credentials
         const ADMIN_USERNAME = "James250Essa";
@@ -214,7 +214,7 @@
                 document.getElementById('dashboardScreen').style.display = 'block';
                 initDashboard();
             } else {
-                alert("Incorrect username or password!\n\nHint: James250Essa / essa200pro");
+                alert("Incorrect username or password!");
             }
         });
 
@@ -230,6 +230,7 @@
                 document.getElementById('dashboardScreen').style.display = 'none';
                 document.getElementById('loginScreen').style.display = 'block';
                 document.getElementById('adminLoginForm').reset();
+                window.location.href="index.html"
             }
         }
 
