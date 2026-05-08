@@ -1,83 +1,255 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESSA Nyarugunga | School of Excellence</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="features.css">
-     <link rel="icon" type="image" href="images/favicon.ico">
+    <link rel="icon" type="image" href="images/favicon.ico">
+
     <style>
-        .animate{
-            animation: mymove fadeIn 2s ease-in-out;
+        body {
+            background-color: var(--bg-primary);
+            margin: 0;
+            padding-top: 0;
         }
-@keyframes mymove{
-0% { font-size: 1; opacity: 0; }
-50% { opacity: 1; font-size: 1.5em; }
-100%{
-opacity: 0; font-size:1;    }
-}
 
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2a92fa;
+            color: white;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            height: 55px;
+            width: auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        .transparent {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 8px 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .transparent:hover {
+            background: white;
+            color: #2a92fa;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
+                        url('images/image.png');
+            background-size: cover;
+            background-position: center;
+            height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            margin-bottom: 12px;
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-primary);
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            padding: 0 40px 40px;
+        }
+
+        .news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 0 40px 50px;
+        }
+
+        .news-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .btn-primary {
+            background: #2a92fa;
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #1577da;
+        }
     </style>
-</header style="background:blue">
-    <div class="logo-area">
-        <img src="images/Essalogo.png" alt="ESSA Nyarugunga Logo" class="logo">
-        <h1 class="animate">ESSA Nyarugunga</h1>
-    </div>
+</head>
+<body>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="#about">About Us</a>
-        <a href="Academics.html">Academics</a>
-        <a href="Admissions.html">Admissions</a>
-         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
-        <a href="login.html"><button class="transparent">Login</button></a>
-    </nav>
-
-
-</header>
-
-<section class="hero" >
-    <img src="images/image.png" alt="Students at ESSA Nyarugunga" class="hero-img">
-    <div class="hero-text">
-        <h2 class="animate">Welcome to ESSA Nyarugunga</h2>
-        <p>School of Excellence • Technical &amp; Vocational Education</p>
-        <button onclick="window.location.href='application.html'">Apply Now</button>
-    </div>
-</section>
-
-<section class="about" id="about">
-    <h2>About Our School</h2>
-    <p>ESSA Nyarugunga is a leading technical secondary school in
-         Kigali, Rwanda, committed to providing high-quality education and
-          practical skills in various technical fields to prepare students for the 
-          job market and further studies. <button class="transparent" onclick="window.location.href='About.html'">Read more</button></p>
-</section>
-
-<section class="news">
-    <h2>Latest News &amp; Announcements</h2>
-    <div class="news-container">
-        <div class="news-card">
-            <h3>Admissions Open 2026 - 2027</h3>
-            <p>New student admissions for the academic year 2026 are now open. Apply before the deadline.</p>
+    <!-- HEADER -->
+    <header>
+        <div class="logo-area">
+            <img src="images/Essalogo.png" alt="ESSA Nyarugunga Logo" class="logo">
+            <h1 style="font-size: 24px; margin: 0;">ESSA Nyarugunga</h1>
         </div>
-        <div class="news-card">
-            <h3>National Examinations</h3>
-            <p>End-of-year practical examinations will begin next month. All students should prepare accordingly.</p>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="About.html">About Us</a>
+            <a href="Academics.html">Academics</a>
+            <a href="Admissions.html">Admissions</a>
+            <a href="login.html"><button class="transparent">Login</button></a>
+        </nav>
+
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 style="background: radial-gradient(yellow , blue , aliceblue , blue);
+             -webkit-background-clip:text;
+             -webkit-text-fill-color:transparent
+             ">Welcome to ESSA Nyarugunga</h1>
+            <p>School of Excellence • Technical & Vocational Education</p>
+            <button class="btn-primary" onclick="window.location.href='application.html'">
+                Apply Now for 2026
+            </button>
         </div>
-        <div class="news-card">
-            <h3>School Events</h3>
-            <p>Annual Cultural Day and Sports Competition will be held in May 2026.</p>
+    </section>
+
+ <div class="container">
+        <div style="text-align: center; padding: 60px 40px 40px;">
+            <img src="images/headmaster.png" alt="Headteacher" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 5px solid #2a92fa;">
+              <p style="font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.7;">
+                Dear Parents and Students,<br><br>
+                It is my pleasure to welcome you to ESSA Nyarugunga. We are committed to nurturing every student's potential through academic excellence, practical skills, and strong moral values. 
+                Together, we shall shape the leaders of tomorrow.
+            </p>
+            <p><strong>Mr. Aine Byona James</strong><br>Headteacher</p>
         </div>
     </div>
-</section>
+    <div class="container about">
+        <h2 class="section-title">About Our School</h2>
+        <p>
+            ESSA Nyarugunga is a leading technical secondary school in Kigali, Rwanda, 
+            committed to providing high-quality education and practical skills in various 
+            technical fields. We prepare students for the job market and higher education 
+            through a balanced blend of academic excellence and hands-on vocational training.
+        </p>
+        <div style="text-align: center; padding-bottom: 40px;">
+            <button class="transparent" onclick="window.location.href='About.html'">
+                Read More About Us
+            </button>
+        </div>
+    </div>
 
-<footer>
-    <p>&copy; 2026 ESSA Nyarugunga | Nyarugunga, Kigali - Rwanda | All Rights Reserved</p>
-</footer>
+    <!-- LATEST NEWS -->
+    <div class="container">
+        <h2 class="section-title">Latest News & Announcements</h2>
+        <div class="news-container" style="
+        display:flex
+        ">
+            <div class="news-card">
+                <h3>Admissions Open 2026 - 2027</h3>
+                <p>New student admissions for the academic year 2026 are now open. Apply before the deadline.</p>
+            </div>
+            <div class="news-card">
+                <h3>National Examinations</h3>
+                <p>End-of-year practical examinations will begin next month. All students should prepare accordingly.</p>
+            </div>
+            <div class="news-card">
+                <h3>School Events</h3>
+                <p>Annual Cultural Day and Sports Competition will be held in May 2026.</p>
+            </div>
+        </div>
+    </div>
 
-<script src="homepage.js"></script>
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        setTheme(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+    </script>
 </body>
 </html>

@@ -394,6 +394,78 @@
                 tbody.appendChild(row);
             });
         }
+        
+        function editStudent(id) {
+            let accepted = JSON.parse(localStorage.getItem('acceptedStudents')) || [];
+            const student = accepted.find(s => s.id === id);
+            if (!student) return;
+
+            currentEditId = id;
+            document.getElementById('editId').value = id;
+            document.getElementById('editName').value = student.studentName;
+            document.getElementById('editClass').value = student.studentClass;
+            document.getElementById('editParent').value = student.parentNumber;
+
+            document.getElementById('editModal').style.display = 'flex';
+        }
+
+        document.getElementById('editForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let accepted = JSON.parse(localStorage.getItem('acceptedStudents')) || [];
+            const index = accepted.findIndex(s => s.id === currentEditId);
+
+            if (index !== -1) {
+                accepted[index].studentName = document.getElementById('editName').value;
+                accepted[index].studentClass = document.getElementById('editClass').value;
+                accepted[index].parentNumber = document.getElementById('editParent').value;
+
+                localStorage.setItem('acceptedStudents', JSON.stringify(accepted));
+                alert("Student information updated successfully!");
+                closeModal();
+                loadAcceptedStudents();
+            }
+        });
+        
+        document.getElementById('editForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let accepted = JSON.parse(localStorage.getItem('acceptedStudents')) || [];
+            const index = accepted.findIndex(s => s.id === currentEditId);
+
+            if (index !== -1) {
+                accepted[index].studentName = document.getElementById('editName').value;
+                accepted[index].studentClass = document.getElementById('editClass').value;
+                accepted[index].parentNumber = document.getElementById('editParent').value;
+
+                localStorage.setItem('acceptedStudents', JSON.stringify(accepted));
+                alert("Student information updated successfully!");
+                closeModal();
+                loadAcceptedStudents();
+            }
+        });
+
+
+        function deleteAcceptedStudent(id) {
+            if (!confirm("Delete this student permanently?")) return;
+
+            let accepted = JSON.parse(localStorage.getItem('acceptedStudents')) || [];
+            accepted = accepted.filter(s => s.id !== id);
+            localStorage.setItem('acceptedStudents', JSON.stringify(accepted));
+            loadAcceptedStudents();
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        // Initialize
+        function initDashboard() {
+            loadApplications();
+            loadUsers();
+            switchTab(0);
+        }
+        
 
         function deleteUser(username) {
             if (!confirm(`Delete user ${username}?`)) return;
@@ -402,6 +474,418 @@
             localStorage.setItem('users', JSON.stringify(users));
             loadUsers();
         }
+    </script>
+    <script> 
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ESSA Nyarugunga</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="features.css">
+    <link rel="icon" type="image" href="images/favicon.ico">
+
+    <style>
+        .login-container {
+            max-width: 420px;
+            margin: 100px auto;
+            background: var(--bg-card);
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .dashboard-container {
+            max-width: 1350px;
+            margin: 20px auto;
+            padding: 20px;
+            display: none;
+        }
+
+        header {
+            background: #2a92fa;
+            color: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1350px;
+            margin: 0 auto;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo { height: 50px; width: auto; }
+
+        nav a, .nav-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #2a92fa;
+            padding: 20px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Tabs & Tables */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .table-container {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+        }
+
+        table { width: 100%; border-collapse: collapse; min-width: 800px; }
+        th, td { padding: 14px 16px; text-align: left; }
+        th { background: var(--accent); color: white; }
+
+        .action-btn {
+            padding: 6px 12px;
+            margin: 2px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .accept-btn { background: #27ae60; color: white; }
+        .edit-btn { background: #f39c12; color: white; }
+        .delete-btn { background: #e74c3c; color: white; }
+
+        /* Edit Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .tabs { justify-content: center; }
+            table { min-width: 600px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOGIN SCREEN -->
+    <div id="loginScreen" class="login-container">
+        <h2>Admin Login</h2>
+        <form id="adminLoginForm">
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label>Username</label><br>
+                <input type="text" id="adminUsername" required style="width:100%; padding:12px; border-radius:8px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+                <label>Password</label><br>
+                <input type="password" id="adminPassword" required style="width:100%; padding:12px; border-radius:8px;">
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%; padding:14px;">Login As Admin</button>
+        </form>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboardScreen" class="dashboard-container">
+
+        <header>
+            <div class="header-content">
+                <div class="logo-area">
+                    <img src="images/Essalogo.png" alt="ESSA Logo" class="logo">
+                    <h1 style="font-size: 24px; margin: 0;">ESSA Nyarugunga</h1>
+                </div>
+
+                <nav class="desktop-nav">
+                    <a href="#" onclick="switchTab(0)">Applications</a>
+                    <a href="#" onclick="switchTab(1)">Accepted</a>
+                    <a href="#" onclick="switchTab(2)">Users</a>
+                </nav>
+
+                <button class="hamburger" id="hamburger">☰</button>
+                <button onclick="logout()" style="background:#e07a5f; color:white; border:none; padding:10px 20px; border-radius:50px;">Logout</button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#" onclick="switchTab(0);closeMobileMenu()">New Applications</a>
+                <a href="#" onclick="switchTab(1);closeMobileMenu()">Accepted Students</a>
+                <a href="#" onclick="switchTab(2);closeMobileMenu()">Signed Up Users</a>
+            </div>
+        </header>
+
+        <div style="padding: 20px;">
+            <h1>Welcome back, <span id="adminName">Administrator</span></h1>
+
+            <!-- TABS -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab(0)">New Applications</button>
+                <button class="tab-btn" onclick="switchTab(1)">Accepted Students</button>
+                <button class="tab-btn" onclick="switchTab(2)">Signed Up Users</button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="tab0"> <!-- New Applications --> ... (same as before) </div>
+            <div id="tab1" style="display:none;">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Student Name</th>
+                                <th>Class / Trade</th>
+                                <th>Parent Contact</th>
+                                <th>Date Accepted</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="acceptedBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab2" style="display:none;"> <!-- Users Tab --> ... </div>
+        </div>
+    </div>
+
+    <!-- EDIT MODAL -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>Edit Student Information</h2>
+            <form id="editForm">
+                <input type="hidden" id="editId">
+
+                <label>Student Name</label>
+                <input type="text" id="editName" required style="width:100%; padding:10px; margin:8px 0;">
+
+                <label>Class / Trade</label>
+                <input type="text" id="editClass" required style="width:100%; padding:10px; margin:8px 0;">
+
+                <label>Parent Contact</label>
+                <input type="text" id="editParent" required style="width:100%; padding:10px; margin:8px 0;">
+
+                <div style="margin-top:20px;">
+                    <button type="button" onclick="closeModal()" style="margin-right:10px;">Cancel</button>
+                    <button type="submit">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Admin Credentials
+        const ADMIN_USERNAME = "James250Essa";
+        const ADMIN_PASSWORD = "essa200pro";
+
+        // Login
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('adminUsername').value.trim();
+            const pass = document.getElementById('adminPassword').value.trim();
+
+            if (user === ADMIN_USERNAME && pass === ADMIN_PASSWORD) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('dashboardScreen').style.display = 'block';
+                initDashboard();
+            } else {
+                alert("Incorrect credentials!");
+            }
+        });
+
+        function logout() {
+            if (confirm("Logout?")) {
+                document.getElementById('dashboardScreen').style.display = 'none';
+                document.getElementById('loginScreen').style.display = 'block';
+                document.getElementById('adminLoginForm').reset();
+            }
+        }
+
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburger.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            hamburger.textContent = '☰';
+        }
+
+        // Tab Switching
+        function switchTab(n) {
+            document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === n));
+            document.getElementById('tab0').style.display = n === 0 ? 'block' : 'none';
+            document.getElementById('tab1').style.display = n === 1 ? 'block' : 'none';
+            document.getElementById('tab2').style.display = n === 2 ? 'block' : 'none';
+
+            if (n === 1) loadAcceptedStudents();
+        }
+
+        // ================== EDIT & DELETE FOR ACCEPTED STUDENTS ==================
+        let currentEditId = null;
+        function loadAcceptedStudents() {
+            let accepted = JSON.parse(localStorage.getItem('acceptedStudents')) || [];
+            const tbody = document.getElementById('acceptedBody');
+            tbody.innerHTML = '';
+
+            if (accepted.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6">No accepted students yet.</td></tr>`;
+                return;
+            }
+
+            accepted.forEach((student, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td><strong>${student.studentName}</strong></td>
+                    <td>${student.studentClass}</td>
+                    <td>${student.parentNumber}</td>
+                    <td>${student.dateAccepted}</td>
+                    <td>
+                        <button class="action-btn edit-btn" onclick="editStudent(${student.id})">Edit</button>
+                        <button class="action-btn delete-btn" onclick="deleteAcceptedStudent(${student.id})">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function editStudent(id) {
+            let accepted = JSON.parse(localStorage.getItem('acceptedStudents')) || [];
+            const student = accepted.find(s => s.id === id);
+            if (!student) return;
+
+            currentEditId = id;
+            document.getElementById('editId').value = id;
+            document.getElementById('editName').value = student.studentName;
+            document.getElementById('editClass').value = student.studentClass;
+            document.getElementById('editParent').value = student.parentNumber;
+
+            document.getElementById('editModal').style.display = 'flex';
+        }
+
+        document.getElementById('editForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let accepted = JSON.parse(localStorage.getItem('acceptedStudents')) || [];
+            const index = accepted.findIndex(s => s.id === currentEditId);
+
+            if (index !== -1) {
+                accepted[index].studentName = document.getElementById('editName').value;
+                accepted[index].studentClass = document.getElementById('editClass').value;
+                accepted[index].parentNumber = document.getElementById('editParent').value;
+
+                localStorage.setItem('acceptedStudents', JSON.stringify(accepted));
+                alert("Student information updated successfully!");
+                closeModal();
+                loadAcceptedStudents();
+            }
+        });
+
+        function deleteAcceptedStudent(id) {
+            if (!confirm("Delete this student permanently?")) return;
+
+            let accepted = JSON.parse(localStorage.getItem('acceptedStudents')) || [];
+            accepted = accepted.filter(s => s.id !== id);
+            localStorage.setItem('acceptedStudents', JSON.stringify(accepted));
+            loadAcceptedStudents();
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        // Initialize
+        function initDashboard() {
+            loadApplications();
+            loadUsers();
+            switchTab(0);
+        }
+        
+
+        // Keep your existing functions (loadApplications, acceptApplication, etc.)
+        // ... (paste all your previous script functions here)
+
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
