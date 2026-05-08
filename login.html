@@ -30,13 +30,13 @@
             overflow: hidden;
         }
     </style>
-
+ <link rel="icon" type="image" href="images/favicon.ico">
     <link rel="stylesheet" href="slogin.css">
 </head>
 <body>
 
     <section>
-        <form id="loginForm">
+        <form id="loginForm"    >
             <h2 class="welcome">Welcome Back to Essa Today</h2>
             
             <label for="username">Username:</label><br>
@@ -55,7 +55,7 @@
     document.getElementById('loginForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const username = document.getElementById('  username').value.trim();
+        const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value.trim();
 
         // Get the array of users from localStorage

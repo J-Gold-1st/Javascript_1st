@@ -5,23 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESSA Nyarugunga - Home</title>
     
-    <!-- Link to unified stylesheet -->
+
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="features.css">
+     <link rel="icon" type="image" href="images/favicon.ico">
     <style>
-        /* Page-specific custom styles */
+        
         body {
             background-color: var(--bg-primary);
             padding-top: 0;
-        }
-
-        header {
-            background: var(--bg-card);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 15px 0;
         }
 
         .logo-area {
@@ -59,8 +51,6 @@
             background: var(--accent);
             color: white;
         }
-
-        /* Make containers consistent with theme */
         .container {
             max-width: 1100px;
             margin: 40px auto;
@@ -78,32 +68,47 @@
             width: 130px;
             height: 100%;
             background: repeating-linear-gradient(
-                45deg,
-                #f8c1a8,
-                #f8c1a8 15px,
-                #f4a37f 15px,
-                #f4a37f 30px
+                35deg,
+                 #171bff,
+                #171bff 15px,
+                 #00a7e9 15px,
+                #00a7e9 30px
             );
-            clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+            clip-path: polygon(0 0, 10% 0, 40% 100%, 0 100%);
         }
 
         [data-theme="dark"] .pattern {
             background: repeating-linear-gradient(
                 45deg,
-                #c97a5f,
-                #c97a5f 15px,
-                #b86a4f 15px,
-                #b86a4f 30px
+                #000122,
+                #000147 15px,
+                #00028b 15px,
+                #00028b 30px
             );
         }
+       [data-theme="dark"] header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #01284e;
+    color: white;
+}
+       
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a92fa;
+    color: white;
+}
+
     </style>
 </head>
 <body>
 
     <!-- HEADER -->
     <header>
-        <div class="container" style="margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 30px;">
-            <div class="logo-area">
+                   <div class="logo-area">
                 <img src="images/Essalogo.png" alt="ESSA Nyarugunga Logo" class="logo">
                 <h1 style="font-size: 24px; margin: 0;">ESSA Nyarugunga</h1>
             </div>
@@ -117,7 +122,7 @@
             </nav>
 
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
-        </div>
+        
     </header>
 
     <!-- Welcome / Overview Section -->

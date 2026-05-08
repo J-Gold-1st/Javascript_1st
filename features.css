@@ -10,15 +10,6 @@ body {
     padding:10px;
   }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #003366;
-    color: white;
-    padding: 15px 40px;
-}
-
 .logo-area {
     display: flex;
     align-items: center;
@@ -49,6 +40,15 @@ nav a:hover {
     width: 100%;
     height: 400px;
     object-fit: cover;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #003366;
+    color: white;
+    padding: 15px 40px;
 }
 
 .hero-text {
@@ -237,7 +237,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #003366;
+    background: #024a92;
     color: white;
     padding: 15px 40px;
 }

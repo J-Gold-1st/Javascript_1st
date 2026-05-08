@@ -5,7 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academics - ESSA Nyarugunga</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="features.css">
+    <link rel="icon" type="image" href="images/favicon.ico">
+
     <style>
+        body {
+            background-color: var(--bg-primary);
+            padding-top: 0;
+            margin: 0;
+            font-family: inherit;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1577da;
+            color: white;
+            padding: 15px 40px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        .transparent {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .transparent:hover {
+            background: var(--accent);
+            color: white;
+        }
+
         .hero {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('images/image.png');
             background-size: cover;
@@ -95,30 +160,39 @@
             color: var(--accent);
             margin-bottom: 8px;
         }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+        }
     </style>
-    <link rel="stylesheet" href="features.css">
 </head>
 <body>
 
     <!-- HEADER -->
     <header>
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px;">
             <div class="logo-area">
-                <img src="images/Essalogo.png" alt="ESSA Logo" class="logo" style="height: 50px;">
+                <img src="images/Essalogo.png" alt="ESSA Logo" class="logo">
                 <h1 style="font-size: 24px; margin: 0;">ESSA Nyarugunga</h1>
             </div>
 
             <nav>
                 <a href="index.html">Home</a>
-                <a href="About`.html">About Us</a>
+                <a href="About.html">About Us</a>
                 <a href="Academics.html">Academics</a>
                 <a href="Admissions.html">Admissions</a>
                 <a href="login.html"><button class="transparent">Login</button></a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
             </nav>
+        
+    </header>
 
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
-        </div>
-    </heade>
     <div class="hero">
         <div class="hero-content">
             <h1>Academic Excellence</h1>
@@ -141,8 +215,6 @@
 
         <!-- Programs Grid -->
         <div class="programs-grid">
-
-            <!-- Ordinary Level -->
             <div class="program-card">
                 <div class="program-level">S1 – S3</div>
                 <div class="program-title">Ordinary Level</div>
@@ -150,14 +222,12 @@
                    We emphasize critical thinking and discipline from the early years.</p>
             </div>
 
-            <!-- Advanced Level -->
             <div class="program-card">
                 <div class="program-level">S4 – S6</div>
                 <div class="program-title">Advanced Level</div>
                 <p>Specialized streams with in-depth study in chosen combinations. Students are prepared for national examinations and higher education.</p>
             </div>
 
-            <!-- TVET Trades -->
             <div class="program-card">
                 <div class="program-level">Level 3 – 5 (TVET)</div>
                 <div class="program-title">Technical & Vocational Education</div>
@@ -220,9 +290,7 @@
         </div>
 
         <div style="text-align: center; margin: 80px 0 40px;">
-            <a href="Admissions.html" class="btn-primary" style="font-size: 18px; padding: 18px 40px;">
-                Apply Now for 2026 Intake
-            </a>
+            <a href="Admissions.html" class="btn-primary">Apply Now for 2026 Intake</a>
         </div>
 
     </div>
